@@ -46,8 +46,11 @@ time, mark, audio, video {
 }
 
 a {
-  /* text-decoration: none; */
   color: inherit;
+}
+
+.flat-a {
+  text-decoration: none;
 }
 
 body {
@@ -142,7 +145,7 @@ main.contained {
 
 .main-paragraph {
   font-family: 'Montserrat', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: normal;
   line-height: 19px;
   padding: 0 30px;
@@ -280,6 +283,22 @@ main.contained {
   color: black;
 }
 
+.nav-link {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  flex-wrap: wrap;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-link {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+
 .drop-shadow {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   position: relative;
@@ -323,6 +342,10 @@ footer {
   margin: auto;
 }
 
+.footer-link {
+  text-align: start;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .upper-footer {
     display: grid;
@@ -339,6 +362,10 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 20px;
+  }
+
+  .footer-link {
+    text-align: center;
   }
 }
 

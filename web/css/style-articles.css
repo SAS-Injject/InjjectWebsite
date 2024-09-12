@@ -12,6 +12,10 @@ body {
   gap: 20px;
 }
 
+.articles a {
+  text-decoration: none;
+}
+
 @media screen and (max-width: 1450px) {
   .articles {
     grid-template-columns: repeat(2, 1fr);
@@ -26,9 +30,9 @@ body {
   }
 }
 
-.articles .article {
+/* .articles .article {
   width: 330px;
-  height: 420px;
+  height: 450px;
   max-width: 330px;
   background-color: #f4f4f4;
   margin: 0;
@@ -40,7 +44,7 @@ body {
 .articles .article .infos {
   background-color: white;
   width: inherit;
-  height: 210px;
+  height: 240px;
 
   padding: 15px;
   display: flex;
@@ -81,7 +85,7 @@ body {
   line-height: normal;
   padding: 0;
   margin: 0;
-}
+} */
 
 .complete-article img {
   width: 100%;

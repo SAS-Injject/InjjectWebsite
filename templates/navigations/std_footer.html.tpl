@@ -13,12 +13,12 @@
       </div>
     </div>
 
-    <div class="d-flex flex-column">
-      <a class="main-description link-light link-underline link-underline-opacity-0 link-offset-2 link-underline-opacity-100-hover" href="/">Accueil</a>
-      <a class="main-description link-light link-underline link-underline-opacity-0 link-offset-2 link-underline-opacity-100-hover" href="/articles">Actualités</a>
-      <a class="main-description link-light link-underline link-underline-opacity-0 link-offset-2 link-underline-opacity-100-hover" href="/realisations">Réalisations</a>
-      <a class="main-description link-light link-underline link-underline-opacity-0 link-offset-2 link-underline-opacity-100-hover" href="/contact">Contact</a>
-      <a class="main-description link-light link-underline link-underline-opacity-0 link-offset-2 link-underline-opacity-100-hover" href="/legal">Mentions légales</a>
+    <div class="footer-link d-flex flex-column">
+      <a class="main-description p-0 link-light link-underline link-underline-opacity-0 link-offset-2 link-underline-opacity-100-hover" href="/">Accueil</a>
+      <a class="main-description p-0 link-light link-underline link-underline-opacity-0 link-offset-2 link-underline-opacity-100-hover" href="/articles">Actualités</a>
+      <a class="main-description p-0 link-light link-underline link-underline-opacity-0 link-offset-2 link-underline-opacity-100-hover" href="/realisations">Réalisations</a>
+      <a class="main-description p-0 link-light link-underline link-underline-opacity-0 link-offset-2 link-underline-opacity-100-hover" href="/contact">Contact</a>
+      <a class="main-description p-0 link-light link-underline link-underline-opacity-0 link-offset-2 link-underline-opacity-100-hover" href="/legal">Mentions légales</a>
     </div>
 
     <div class="d-flex flex-column align-items-center">

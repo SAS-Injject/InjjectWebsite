@@ -1,4 +1,4 @@
-<a href="/articles?article={{ id }}"><article class="article">
+<a class="flat-a" href="/articles?article={{ id }}"><article class="article">
   <img src="{{ url_api }}{{ thumbnail_file }}">
   <div class="infos">
     <div class="w-100 d-flex flex-row justify-content-start small-gap">

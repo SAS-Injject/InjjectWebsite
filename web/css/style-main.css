@@ -135,7 +135,7 @@
 
 .articles .article {
   width: 330px;
-  height: 420px;
+  height: 450px;
   max-width: 330px;
   background-color: #f4f4f4;
   margin: 0;
@@ -147,7 +147,7 @@
 .articles .article .infos {
   background-color: white;
   width: inherit;
-  height: 210px;
+  height: 240px;
 
 
   padding: 15px;

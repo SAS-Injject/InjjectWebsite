@@ -8,7 +8,7 @@
     <h2 class="title-main-dark-medium text-center" >Projet : {{ data.title }}</h2>
     <img class="realisation_thumbnail m-auto" src="{{ url_api }}{{ data.photos.0.file }}">
 
-    <ul class="d-flex flex-column std-gap my-3">
+    <ul class="d-flex flex-column std-gap m-3">
       <li>
         <p class="main-paragraph p-0"><b>Contexte : </b></p>
         <p class="main-paragraph p-0">{{ data.context }}</p>

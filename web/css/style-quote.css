@@ -73,6 +73,7 @@ form#quote_form .input-framed .drop-container .input-file {
   font-weight: normal;
   line-height: 19px;
   padding: 0 30px;
+  width: 100%;
 }
 
 form#quote_form .input-framed .drop-container .input-file::file-selector-button {
