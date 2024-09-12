@@ -1,0 +1,66 @@
+.legals-list {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.legals-list > div {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+article[data-legals="true"] {
+  width: 100%;
+  max-width: 900px;
+}
+
+article[data-legals="true"] h3 {
+  font-family: 'Montserrat medium', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+article[data-legals="true"] h4 {
+  font-family: 'Montserrat medium', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1.5px;
+
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+article[data-legals="true"] p {
+  text-indent: 1rem;
+  
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 19px;
+  padding: 0 30px;
+
+  margin-bottom: 5px;
+}
+
+article[data-legals="true"] ul {
+  text-indent: 1rem;
+  
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 19px;
+  padding: 0 30px;
+
+  margin-bottom: 5px;
+}
+
+article[data-legals="true"] ul li{
+  text-indent: 1rem;
+  margin-bottom: 5px;
+
+  margin-bottom: 5px;
+}

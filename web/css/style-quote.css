@@ -1,0 +1,99 @@
+#quote_form textarea, 
+#quote_form input, 
+#quote_form label.drop-container, 
+#quote_form input:not([type="submit"])
+#quote_form input:not([type="file"]) {
+  background-color: #FAFAFA;
+}
+
+#quote_form textarea, 
+#quote_form input {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 19px;
+}
+
+#quote_form input[type="checkbox"]:checked,
+#quote_form input[type="radio"]:checked {
+  background-color: #ED7F10;
+}
+
+#quote_form {
+  width: 100%;
+  height: 550px;
+}
+
+#quote_form fieldset[data-visible=false] {
+  display: none;
+}
+
+#quote_form fieldset[data-visible=true] {
+  width: 100%;
+  height: inherit;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  gap: 25px;
+}
+
+#quote_form fieldset[data-visible=true] div {
+  width: 100%;
+}
+
+#quote_form .input-framed .drop-container {
+  position: 'relative';
+
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    border-radius: 5px;
+    border: 2px dashed #0F4C81;
+    color: black;
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+}
+
+form#quote_form .input-framed .drop-container:hover,
+form#quote_form .input-framed .drop-container.drag-active {
+  background-color: rgba(#000000, 0.05);
+}
+
+
+form#quote_form .input-framed .drop-container .input-file {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 19px;
+  padding: 0 30px;
+}
+
+form#quote_form .input-framed .drop-container .input-file::file-selector-button {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-family: 'Montserrat semibold', sans-serif;
+  text-decoration: none;
+
+  background-color: #ED7F10;
+  color: white;
+  border: none;
+
+  padding: 8px 20px;
+  border-radius: 5px;
+}
+
+
+form#quote_form .input-framed .drop-container .input-file::file-selector-button:hover {
+  background-color: #f88d23;
+}
+
+form#quote_form .input-framed .drop-container .input-file::file-selector-button:active {
+  background-color: #ee7b08;
+}

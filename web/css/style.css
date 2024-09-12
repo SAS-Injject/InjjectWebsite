@@ -1,0 +1,359 @@
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  src: url('fonts/static/Montserrat-Regular.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat bold';
+  font-style: normal;
+  src: url('fonts/static/Montserrat-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat medium';
+  font-style: normal;
+  src: url('fonts/static/Montserrat-Medium.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat semibold';
+  font-style: normal;
+  src: url('fonts/static/Montserrat-SemiBold.ttf');
+}
+
+@font-face {
+  font-family: 'Montserrat light';
+  font-style: normal;
+  src: url('fonts/static/Montserrat-Light.ttf');
+}
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+  /* text-decoration: none; */
+  color: inherit;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+  background-color: #f8f8f8;
+
+}
+
+main {
+  background-color: white;
+  min-height: 100vh;
+  height: 100%;
+}
+
+main.contained {
+  min-width: 900px;
+  width: 80%;
+  max-width: 1200px;
+  padding: 0 40px;
+  margin: auto;
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+@media screen and (max-width: 900px) {
+  main.contained {
+    min-width: 300px;
+    width: 100%;
+    padding: 0 15px;
+  }
+}
+
+/* TEXTS */
+
+.title-main-blue {
+  font-family: 'Montserrat bold', sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  color: #0F4C81;
+  letter-spacing: 1.5px;
+}
+
+.title-main-dark {
+  font-family: 'Montserrat bold', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+}
+
+.title-main-white {
+  font-family: 'Montserrat bold', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  color: white;
+}
+
+.title-main-dark-medium {
+  font-family: 'Montserrat medium', sans-serif;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+}
+
+.title-sub-dark {
+  font-family: 'Montserrat semibold', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.title-sub-light {
+  font-family: 'Montserrat semibold', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: white;
+}
+
+.title-sub-orange {
+  font-family: 'Montserrat semibold', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+
+  color: #ED7F10;
+}
+
+.main-description {
+  font-family: 'Montserrat medium', sans-serif;
+  font-size: 15px;
+  letter-spacing: 1px;
+  line-height: 28px;
+  padding: 0 20px;
+}
+
+.main-paragraph {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 19px;
+  padding: 0 30px;
+}
+
+/* ---- */
+
+.btn-custom-main {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-family: 'Montserrat semibold', sans-serif;
+  text-decoration: none;
+
+  background-color: #ED7F10;
+  color: white;
+  border: none;
+
+  padding: 8px 20px;
+  border-radius: 5px;
+}
+
+.btn-custom-main:hover {
+  background-color: #f88d23;
+}
+
+.btn-custom-main:active {
+  background-color: #ee7b08;
+}
+
+.btn-custom-grey {
+  font-size: 11px;
+  text-transform: uppercase;
+  font-family: 'Montserrat semibold', sans-serif;
+  text-decoration: none;
+
+  background-color: #9896A4;
+  color: white;
+  border: none;
+
+  padding: 8px 20px;
+  border-radius: 5px;
+}
+
+.btn-custom-grey:hover {
+  background-color: #aaa9b4;
+}
+
+.btn-custom-grey:active {
+  background-color: #8e8d96;
+}
+
+.bg-main {
+  background-color: #ED7F10;
+}
+
+.bg-main-light {
+  background-color: #FFC285;
+}
+
+.bg-grey-light {
+  background-color: #F1F1F1;
+}
+
+.bg-light {
+  background-color: #FAFAFA;
+}
+
+
+/* CONTAINER */
+.container-std {
+  min-width: 700px;
+  width: 80%;
+  max-width: 900px;
+}
+@media screen and (max-width: 768px) {
+  .container-std {
+    min-width: 300px;
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+.container-small {
+  min-width: 550px;
+  width: 80%;
+  max-width: 700px;
+}
+.container-light {
+  width: 100%;
+  max-width: 500px;
+}
+@media screen and (max-width: 768px) {
+  .container-small, .container-light {
+    min-width: 300px;
+    width: 100%;
+    max-width: 500px;
+  }
+}
+
+
+
+/* ---- */
+
+/* MARGIN */
+.section-margin {
+  margin: 25px 0;
+}
+
+.section-padding {
+  padding: 25px 0;
+}
+
+.std-gap {
+  gap: 20px;
+} 
+
+.small-gap {
+  gap: 10px;
+} 
+
+.large-gap {
+  gap: 50px;
+} 
+/* ---- */
+
+
+/* NAVBAR */
+.navbar-toggler-custom, .navbar-toggler-custom:focus, .navbar-toggler-custom:focus:not(:focus-visible) {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.navbar-toggler-custom span {
+  color: black;
+}
+
+.drop-shadow {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 10;
+}
+/* ----- */
+
+/* HEADER MAIN PAGE */
+
+.logo-header {
+  margin-top: 25px;
+  width: 100%;
+  max-width: 430px;
+  min-width: 300px;
+  padding: 0 20px;
+}
+
+.splash-header {
+  width: 420px;
+}
+@media screen and (max-width: 1024px) {
+  .splash-header {
+    display: none;
+  }
+}
+
+/* ----- */
+
+/* FOOTER */
+
+footer {
+  background-color: #171717;
+}
+
+.upper-footer {
+  display: grid;
+  grid-template-columns: repeat(4, 200px);
+  gap: 70px;
+
+  width: fit-content;
+  margin: auto;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .upper-footer {
+    display: grid;
+    grid-template-columns: repeat(2, 200px);
+    gap: 70px;
+  
+    width: fit-content;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .upper-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+
+
+/* ----- */
+
+/* ALERT */
+
+.alert {
+  position: fixed;
+  width: calc(100% - 20px);
+  max-width: 500px;
+  bottom: 10px;
+  left: 10px;
+}
+
+/* ---- */

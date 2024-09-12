@@ -1,0 +1,23 @@
+form#contact_form {
+  border: 1px solid #ececec;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+form#contact_form textarea, 
+form#contact_form input:not([type="submit"]) {
+  background-color: #FAFAFA;
+}
+
+form#contact_form textarea, 
+form#contact_form input {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: 19px;
+}
+
+form#contact_form input[type="checkbox"]:checked,
+form#contact_form input[type="radio"]:checked {
+  background-color: #ED7F10;
+}
