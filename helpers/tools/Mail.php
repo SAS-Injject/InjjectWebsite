@@ -2,6 +2,7 @@
 
 namespace App\Helpers\Tools;
 
+use App\Controllers\AbstractController;
 use App\Helpers\Config\Dotenv;
 use Exception;
 use PHPMailer\PHPMailer\PHPMailer;
@@ -58,7 +59,7 @@ class Mail {
     return $response_message;
   }
 
-  public static function quote_form() {
+  public static function quote_form(AbstractController $controller) {
 
     $error = false;
     
@@ -90,7 +91,7 @@ class Mail {
     if (!$error) {
 
       $response = Mail::process_mail($mail, $message, $_FILES['files']);
-      $_SESSION['fleeting']['flash_messages'][] = $response;
+      $controller->addFlash($response['message'], $response['type']);
 
       header('Location: ' . $_SERVER['REQUEST_URI']);
     }

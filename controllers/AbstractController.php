@@ -27,9 +27,11 @@ class AbstractController {
   }
 
   public function exec_common_duties() {
+
+    //Vérifie le token après envoie du formulaire de devis (commun à toutes les pages)
     if(isset($_POST['token']) ) {
       if(JWT::isTokenValid($_POST['token'], ['form' => "quote_form"])) {
-        Mail::quote_form();
+        Mail::quote_form($this);
       } else {
         $this->addFlash('Le Token du formulaire a expiré.', 'danger'); 
       }
@@ -106,7 +108,7 @@ class AbstractController {
     return $this->js_files_path;
   }
 
-  protected function addFlash(string $message, string $type) {
+  public function addFlash(string $message, string $type) {
     $_SESSION['fleeting']['flash_messages'][] = [
       'message' => $message,
       'type' => $type

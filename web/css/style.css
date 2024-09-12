@@ -348,12 +348,15 @@ footer {
 
 /* ALERT */
 
-.alert {
+.alerts-flash {
   position: fixed;
   width: calc(100% - 20px);
   max-width: 500px;
-  bottom: 10px;
+  bottom: 0px;
   left: 10px;
+
+  display: flex;
+  flex-direction: column;
 }
 
 /* ---- */

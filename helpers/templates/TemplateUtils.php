@@ -11,7 +11,7 @@ class TemplateUtils {
   public static function sing(AbstractController $controller, string $html_file_path, array $parameters = []): string {
 
     $parameters = array_merge($parameters, AbstractController::get_common_parameters($controller));
-    if(null !== $_SESSION['fleeting'] && count($_SESSION['fleeting']) > 0) {
+    if(isset($_SESSION['fleeting']) && count($_SESSION['fleeting']) > 0) {
       $parameters = array_merge($parameters, $_SESSION['fleeting']);
       $_SESSION['fleeting'] = [];
     }
