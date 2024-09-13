@@ -7,7 +7,7 @@
           étude de conception
         </button>
       </h2>
-      <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+      <div id="flush-collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionFlushExample">
         <div class="accordion-body accordion-body-custom">
           <p class="main-description text-center">Après une étude préalable sur vos besoins ainsi que des informations liés à 
             votre futur pièce (environnement, cotation, matière, etc...) nous la concevons sur CAD. À ce stade, nous 
