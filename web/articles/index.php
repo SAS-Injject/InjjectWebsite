@@ -31,5 +31,5 @@ if(isset($_GET['article']) && is_numeric($_GET['article'])) {
   $id = intval($_GET['article']);
   echo (new Articles('Actualités Injject', ['/css/style-main.css', '/css/style-articles.css']))->item($id);
 } else {
-  echo (new Articles('Actualités Injject', ['/css/style-articles.css']))->index($limit_article_by_page, $current_page);
+  echo (new Articles('Actualités Injject', ['/css/style-main.css', '/css/style-articles.css']))->index($limit_article_by_page, $current_page);
 }
