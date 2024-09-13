@@ -32,9 +32,7 @@ class AbstractController {
     if(isset($_POST['token']) ) {
       if(JWT::isTokenValid($_POST['token'], ['form' => "quote_form"])) {
         Mail::quote_form($this);
-      } else {
-        $this->addFlash('Le Token du formulaire a expiré.', 'danger'); 
-      }
+      } 
     }
 
   }

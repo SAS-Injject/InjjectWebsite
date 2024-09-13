@@ -95,6 +95,7 @@ class Mail {
       $controller->addFlash($response['message'], $response['type']);
 
       header('Location: ' . $_SERVER['REQUEST_URI']);
+      exit;
     }
 
     return $response;
