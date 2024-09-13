@@ -11,7 +11,7 @@ use PHPMailer\PHPMailer\SMTP;
 class Mail {
 
 
-  public static function process_mail(PHPMailer $mail, string $message, array $files = []) {
+  public static function process_mail(PHPMailer $mail, string $mail_address, string $message, array $files = []) {
     try {
 
       //Server Settings
@@ -26,7 +26,7 @@ class Mail {
 
       //Recipents
       $mail->setFrom(Dotenv::getEnv('MAIL'));
-      $mail->addAddress(Dotenv::getEnv('MAIL'));
+      $mail->addAddress($mail_address);
       // $mail->addAddress($mail_address); -> ajouter pour un autre destinataire
       
       //Attachements
@@ -72,11 +72,15 @@ class Mail {
       $error = true;
     }
 
-    $message = $_POST['message']. '<br> E-Mail : '.$mail_address;
+    $noreply_message = $_POST['message']. '<br> E-Mail : '.$mail_address;
     if(isset($_POST['tel']) && $_POST['tel'] !== "") {
-      $message .= '<br> Téléphone : '. $_POST['tel'];
+      $noreply_message .= '<br> Téléphone : '. $_POST['tel'];
     }
+    $noreply_message = htmlentities($noreply_message);
+
+    $message = 'Ceci est un message de retour pour confirmation de votre prise de contact :<br>'. $_POST['message'];
     $message = htmlentities($message);
+
 
     $mail = new PHPMailer(false);
     $mail->CharSet = "UTF-8";
@@ -90,8 +94,8 @@ class Mail {
 
     if (!$error) {
 
-      $response = Mail::process_mail($mail, $message, ($_FILES['files'] ?? []));
-      Dump::d($response);
+      $response = Mail::process_mail($mail, $mail_address, $message, ($_FILES['files'] ?? []));
+      $response = Mail::process_mail($mail, Dotenv::getEnv('MAIL'), $noreply_message, ($_FILES['files'] ?? []));
       $controller->addFlash($response['message'], $response['type']);
 
       header('Location: ' . $_SERVER['REQUEST_URI']);
