@@ -90,10 +90,13 @@ class Mail {
 
     if (!$error) {
 
-      $response = Mail::process_mail($mail, $message, $_FILES['files']);
+      $response = Mail::process_mail($mail, $message, ($_FILES['files'] ?? []));
+      Dump::d($response);
       $controller->addFlash($response['message'], $response['type']);
 
       header('Location: ' . $_SERVER['REQUEST_URI']);
     }
+
+    return $response;
   }
 }

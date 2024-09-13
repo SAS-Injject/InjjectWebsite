@@ -11,11 +11,11 @@ class TemplateUtils {
   public static function sing(AbstractController $controller, string $html_file_path, array $parameters = []): string {
 
     $parameters = array_merge($parameters, AbstractController::get_common_parameters($controller));
+
     if(isset($_SESSION['fleeting']) && count($_SESSION['fleeting']) > 0) {
       $parameters = array_merge($parameters, $_SESSION['fleeting']);
       $_SESSION['fleeting'] = [];
     }
-
     $code = file_get_contents($html_file_path);
 
     $compiled_code = self::compile_parameters($code, $parameters);
