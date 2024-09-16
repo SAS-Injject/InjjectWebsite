@@ -82,8 +82,10 @@ class Mail {
     $message = htmlentities($message);
 
 
-    $mail = new PHPMailer(false);
-    $mail->CharSet = "UTF-8";
+    $mail_for_customer = new PHPMailer(false);
+    $mail_for_admin = new PHPMailer(false);
+    $mail_for_admin->CharSet = "UTF-8";
+    $mail_for_customer->CharSet = "UTF-8";
     
     if(isset($_FILES['files']) && count($_FILES['files'])) {
       foreach($_FILES['files']['error'] as $file_err) {
@@ -94,8 +96,8 @@ class Mail {
 
     if (!$error) {
 
-      $response = Mail::process_mail($mail, $mail_address, $message, ($_FILES['files'] ?? []));
-      $response = Mail::process_mail($mail, Dotenv::getEnv('MAIL'), $noreply_message, ($_FILES['files'] ?? []));
+      $response = Mail::process_mail($mail_for_customer, $mail_address, $message, ($_FILES['files'] ?? []));
+      $response = Mail::process_mail($mail_for_admin, Dotenv::getEnv('MAIL'), $noreply_message, ($_FILES['files'] ?? []));
       $controller->addFlash($response['message'], $response['type']);
 
       header('Location: ' . $_SERVER['REQUEST_URI']);
