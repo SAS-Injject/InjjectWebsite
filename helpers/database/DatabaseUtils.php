@@ -163,7 +163,7 @@ class DatabaseUtils {
     if($where !== "") {
       $sql .= " WHERE $where_criteria = $where";
     }
-    $sql = " ORDER BY $order LIMIT $limit OFFSET $offset";
+    $sql .= " ORDER BY $order LIMIT $limit OFFSET $offset";
     $entities = self::sql($sql, respond: true);
 
     if( !is_null($entities) && count($entities) > 0 ) {
