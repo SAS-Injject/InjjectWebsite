@@ -159,10 +159,11 @@ class DatabaseUtils {
       $columns_str = implode(',', $columns);
     }
 
-    $sql = "SELECT $columns_str FROM $table ORDER BY $order LIMIT $limit OFFSET $offset";
+    $sql = "SELECT $columns_str FROM $table ";
     if($where !== "") {
-      $sql .= " WHERE $where_criteria = '$where'";
+      $sql .= " WHERE $where_criteria = $where";
     }
+    $sql = " ORDER BY $order LIMIT $limit OFFSET $offset";
     $entities = self::sql($sql, respond: true);
 
     if( !is_null($entities) && count($entities) > 0 ) {
