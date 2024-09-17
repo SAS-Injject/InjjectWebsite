@@ -11,7 +11,7 @@ use PHPMailer\PHPMailer\SMTP;
 class Mail {
 
 
-  public static function process_mail(PHPMailer $mail, string $mail_address, string $message, array $files = []) {
+  public static function process_mail(PHPMailer $mail, array $mail_addresses, string $message, array $files = []) {
     try {
 
       //Server Settings
@@ -26,8 +26,9 @@ class Mail {
 
       //Recipents
       $mail->setFrom(Dotenv::getEnv('MAIL'));
-      $mail->addAddress($mail_address);
-      // $mail->addAddress($mail_address); -> ajouter pour un autre destinataire
+      foreach($mail_addresses as $mail_address) {
+        $mail->addAddress($mail_address);
+      }
       
       //Attachements
       if(null !== $files || count($files) > 0) {
@@ -96,8 +97,8 @@ class Mail {
 
     if (!$error) {
 
-      $response = Mail::process_mail($mail_for_customer, $mail_address, $message, ($_FILES['files'] ?? []));
-      $response = Mail::process_mail($mail_for_admin, Dotenv::getEnv('MAIL'), $noreply_message, ($_FILES['files'] ?? []));
+      $response = Mail::process_mail($mail_for_customer, [$mail_address], $message, ($_FILES['files'] ?? []));
+      $response = Mail::process_mail($mail_for_admin, explode(',', Dotenv::getEnv('MAIL')), $noreply_message, ($_FILES['files'] ?? []));
       $controller->addFlash($response['message'], $response['type']);
 
       header('Location: ' . $_SERVER['REQUEST_URI']);
