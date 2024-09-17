@@ -19,7 +19,7 @@ class Articles extends AbstractController{
       $offset = ($page-1)*$limit_articles_by_page;
       $articles = DatabaseUtils::get_paginated_entities(
         'articles', 
-        ["id", "title", "thumbnail_id", "published_at", "summary"], 
+        ["id", "title", "thumbnail_id", "published_at", "summary", "is_published"], 
         $limit_articles_by_page, $offset, 'published_at',         
         1, "is_published"
       );

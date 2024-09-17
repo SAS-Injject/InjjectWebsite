@@ -6,6 +6,8 @@ define('FULL_PATH', dirname(__FILE__));
 define('WEB_PATH', dirname(__FILE__).'/web');
 define('TEMPLATES_PATH', dirname(__FILE__).'/templates');
 
+ini_set('display_errors', 'Off');
+
 session_start();
 
 if(file_exists(__DIR__.'/vendor/autoload.php')) {
