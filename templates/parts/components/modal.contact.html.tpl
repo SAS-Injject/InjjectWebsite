@@ -66,7 +66,7 @@
               <div class="d-flex align-items-center std-gap">
                 <input class="form-check-input m-0" type="checkbox" id="rgpd" name="rgpd" required>
                 <label class="form-check-label main-paragraph p-0" for="rgpd">J'accepte les CGU ainsi que le traitement de mes données personnelles par <br>Injject selon 
-                  normes régies par la RGPD <i>*</i>
+                  les normes régies par la RGPD <i>*</i>
                 </label>
               </div>
               <p class="main-paragraph text-center pb-3">Les éléments notés d'un astérisque * sont obligatoire pour l'envoi du formulaire de contact</p>
