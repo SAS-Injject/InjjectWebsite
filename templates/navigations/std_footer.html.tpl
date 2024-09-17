@@ -30,8 +30,8 @@
       <div>
         <p class="main-description text-center">Suivez-nous</p>
         <div class="d-flex flex-row justify-content-center">
-          <a href="https://www.linkedin.com/company/injject/"><img src="/assets/icon-linkedin-white.png" width="40"></a>
-          <a href="https://www.youtube.com/@Injject"><img src="/assets/icon-youtube-white.png" width="40"></a>
+          <a href="https://www.linkedin.com/company/injject/" target="_blank"><img src="/assets/icon-linkedin-white.png" width="40"></a>
+          <a href="https://www.youtube.com/@Injject" target="_blank"><img src="/assets/icon-youtube-white.png" width="40"></a>
         </div>
       </div>
       <div>
