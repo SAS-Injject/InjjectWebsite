@@ -79,7 +79,7 @@ class Mail {
     }
     $noreply_message = htmlentities($noreply_message);
 
-    $message = 'Ceci est un message de retour pour confirmation de votre prise de contact :<br>'. $_POST['message'];
+    $message = 'Ceci est un mail de retour contenant votre message pour confirmation de votre prise de contact :<br><br>'. $_POST['message'];
     $message = htmlentities($message);
 
 
