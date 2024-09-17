@@ -152,14 +152,18 @@ class DatabaseUtils {
     return [];
   }
 
-  public static function get_paginated_entities(string $table, array $columns = [], int $limit = 10, int $offset = 0, string $order = 'id'): array {
+  public static function get_paginated_entities(string $table, array $columns = [], int $limit = 10, int $offset = 0, string $order = 'id', string $where = "", string $where_criteria = 'id'): array {
 
     $columns_str = "*";
     if(count($columns) > 0) {
       $columns_str = implode(',', $columns);
     }
 
-    $entities = self::sql("SELECT $columns_str FROM $table ORDER BY $order LIMIT $limit OFFSET $offset", respond: true);
+    $sql = "SELECT $columns_str FROM $table ORDER BY $order LIMIT $limit OFFSET $offset";
+    if($where !== "") {
+      $sql .= " WHERE $where_criteria = $where";
+    }
+    $entities = self::sql($sql, respond: true);
 
     if( !is_null($entities) && count($entities) > 0 ) {
       return $entities;

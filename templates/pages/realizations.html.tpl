@@ -9,12 +9,12 @@
     <div class="container-std m-auto d-flex flex-column std-gap pb-4">
       <p class="main-description">Bienvenue sur la page dédiée à nos réalisations. ici, nous partageons quelques-uns des 
         projets qui illustrent notre engagement envers l'innovation industrielle. Ces exemples mettent en lumière la 
-        manière dont notre expertise a contribué à créer des solutions pratiques et innovantes dans le domainre de la 
+        manière dont notre expertise a contribué à créer des solutions pratiques et innovantes dans le domaine de la 
         conception de pièces résine sur-mesure.
       </p>
       <p class="main-paragraph">
-        Nous sommes reconnaissant de la confiance que nos clients nous ont accordée dans ces domaines spécialisés, et 
-        nous sommes impatients de mettre notre expérience au service de votre prochain projet.
+        Nous sommes reconnaissant de la confiance que nos clients nous ont accordé dans ces domaines spécialisés. 
+        Nous sommes impatients de mettre notre expérience au service de votre prochain projet.
       </p>
     </div>
     <div class="articles std-gap m-auto">

@@ -11,6 +11,6 @@
       Demander un devis
     </button>
     
-    <p class="main-paragraph p-0">Format de fichier accepter: PNG | STL | PDF</p>
+    <p class="main-paragraph p-0">Format de fichier accepté: PNG | STL | PDF</p>
   </div>
 </section>

@@ -53,7 +53,7 @@
             d'un assemblage plus ou moins complexe. C'est pourquoi, nous proposons également et cela dès l'étude 
             préalable, l'étude de conception de sous-ensembles.</p>
           <p class="main-paragraph">Nous ne nous contentons pas seulement de produire des pièces, nous créons avec 
-            vous la pièce et ces sous-ensembles (visseire, liaisons mécaniques, assemblages avec pièces annexes au 
+            vous la pièce et ces sous-ensembles (visserie, liaisons mécaniques, assemblages avec pièces annexes au 
             projet, intégrations, etc ...).</p>
           <p class="main-paragraph">Vous avez des questions sur nos offres ou avez un projet à soumettre ? 
             N'hésitez pas à nous contacter.</p>

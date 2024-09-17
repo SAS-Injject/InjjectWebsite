@@ -19,8 +19,9 @@ class Realizations extends AbstractController{
       $offset = ($page-1)*$limit_articles_by_page;
       $realizations = DatabaseUtils::get_paginated_entities(
         'realization', 
-        ["id", "title", "period"], 
-        $limit_articles_by_page, $offset, 'period'
+        ["id", "title", "period", "is_published"], 
+        $limit_articles_by_page, $offset, 'period',
+        1, "is_published"
       );
 
       
