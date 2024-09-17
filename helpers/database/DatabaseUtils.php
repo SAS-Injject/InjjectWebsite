@@ -99,7 +99,7 @@ class DatabaseUtils {
         }
       }
     } catch (PDOException $pdoe) {
-      echo $pdoe->getMessage();
+      // echo $pdoe->getMessage();
     }
     
   }
