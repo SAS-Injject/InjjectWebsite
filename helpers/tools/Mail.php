@@ -25,7 +25,7 @@ class Mail {
       $mail->Port       = Dotenv::getEnv('MAIL_PORT');
 
       //Recipents
-      $mail->setFrom(Dotenv::getEnv('MAIL'));
+      $mail->setFrom(Dotenv::getEnv('MAIL_USER'));
       foreach($mail_addresses as $mail_address) {
         $mail->addAddress($mail_address);
       }
