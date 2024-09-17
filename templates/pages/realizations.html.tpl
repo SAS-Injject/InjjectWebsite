@@ -7,7 +7,7 @@
   <section class="section-margin d-flex flex-column align-items-center std-gap">
     <h2 class="title-main-dark">Réalisations</h2>
     <div class="container-std m-auto d-flex flex-column std-gap pb-4">
-      <p class="main-description">Bienvenue sure page dédiée à nos réalisations. ici, nous partageons quelques-uns des 
+      <p class="main-description">Bienvenue sur la page dédiée à nos réalisations. ici, nous partageons quelques-uns des 
         projets qui illustrent notre engagement envers l'innovation industrielle. Ces exemples mettent en lumière la 
         manière dont notre expertise a contribué à créer des solutions pratiques et innovantes dans le domainre de la 
         conception de pièces résine sur-mesure.
