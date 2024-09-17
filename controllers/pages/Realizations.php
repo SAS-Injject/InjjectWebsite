@@ -21,7 +21,7 @@ class Realizations extends AbstractController{
         'realization', 
         ["id", "title", "period", "is_published"], 
         $limit_articles_by_page, $offset, 'period',
-        1, "is_published"
+        "1", "is_published"
       );
 
       

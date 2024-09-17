@@ -161,7 +161,7 @@ class DatabaseUtils {
 
     $sql = "SELECT $columns_str FROM $table ORDER BY $order LIMIT $limit OFFSET $offset";
     if($where !== "") {
-      $sql .= " WHERE $where_criteria = $where";
+      $sql .= " WHERE $where_criteria = '$where'";
     }
     $entities = self::sql($sql, respond: true);
 
