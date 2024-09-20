@@ -134,7 +134,6 @@ class Mail {
         $content = file_get_contents(FULL_PATH.'/logs/mail.log');
       }
 
-
       if($banned) {
         $content .= "BANNED / ";
       }

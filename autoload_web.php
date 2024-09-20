@@ -22,6 +22,15 @@ if(file_exists(FULL_PATH.'/data/ban_ip.json')) {
 }
 
 if($banned) {
+  $content = "";
+  if(file_exists(FULL_PATH.'/logs/mail.log')) {
+    $content = file_get_contents(FULL_PATH.'/logs/spam.log');
+  }
+
+  date_default_timezone_set('Europe/Paris');
+  $content .= "[Connection] at ".date('h-i-s')." ".date('d/m/o')." as IP:".$ip." with ".$agent."\n"; 
+
+  file_put_contents(FULL_PATH.'/logs/spam.log', $content);
   header('Location: '. $_SERVER['REMOTE_ADDR']);
   exit;
 }
