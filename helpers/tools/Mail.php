@@ -31,7 +31,7 @@ class Mail {
       }
       
       //Attachements
-      if(null !== $files || count($files) > 0) {
+      if(isset($files['tmp_name']) && $files['tmp_name'] !== []) {
         foreach($files['tmp_name'] as $index => $file_path) {
           $mail->addAttachment($file_path, $files['name'][$index]);
         }
@@ -48,7 +48,6 @@ class Mail {
         'message' => 'Le message a été envoyé',
         'type' => 'success'
       ];
-
 
     } catch(Exception $e) {
       $response_message = [
@@ -82,28 +81,38 @@ class Mail {
     $message = 'Ceci est un mail de retour contenant votre message pour confirmation de votre prise de contact :<br><br>'. $_POST['message'];
     $message = htmlentities($message);
 
+    
 
     $mail_for_customer = new PHPMailer(false);
+    $mail_for_customer->CharSet = "UTF-8";
     $mail_for_admin = new PHPMailer(false);
     $mail_for_admin->CharSet = "UTF-8";
-    $mail_for_customer->CharSet = "UTF-8";
     
     if(isset($_FILES['files']) && count($_FILES['files'])) {
       foreach($_FILES['files']['error'] as $file_err) {
         if($file_err > 0) {
+          //TODO errors
         }
       }
     }
 
     if (!$error) {
-
       $response = Mail::process_mail($mail_for_customer, [$mail_address], $message, ($_FILES['files'] ?? []));
       $response = Mail::process_mail($mail_for_admin, explode(',', Dotenv::getEnv('MAIL')), $noreply_message, ($_FILES['files'] ?? []));
       $controller->addFlash($response['message'], $response['type']);
 
+      $content = "";
+      if(file_exists(FULL_PATH.'/logs/mail.log')) {
+        $content = file_get_contents(FULL_PATH.'/logs/mail.log');
+      }
+
+      $content .= "[Mail Send] at ".date('h-i-s')." ".date('d/m/o')." as IP:".$_SERVER['REMOTE_ADDR']." with ".$_SERVER['HTTP_USER_AGENT']." with mail adress: ".$mail_address."\n"; 
+
+      file_put_contents(FULL_PATH.'/logs/mail.log', $content);
+
       header('Location: ' . $_SERVER['REQUEST_URI']);
       exit;
-    }
+    } 
 
     return $response;
   }
