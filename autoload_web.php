@@ -12,6 +12,7 @@ ini_set('display_errors', 'Off');
 
 //Exit if spam ip registered
 $banned = false;
+
 if(file_exists(FULL_PATH.'/data/ban_ip.json')) {
   $spam_ip = json_decode(file_get_contents(FULL_PATH.'/data/ban_ip.json'), true);
   if(isset($spam_ip['spam_ip']) && $spam_ip['spam_ip'] !== [] && isset($_SERVER['REMOTE_ADDR'])) {
@@ -21,6 +22,8 @@ if(file_exists(FULL_PATH.'/data/ban_ip.json')) {
   }
 }
 
+$ip = $_SERVER['REMOTE_ADDR'];
+
 if($banned) {
   $content = "";
   if(file_exists(FULL_PATH.'/logs/spam.log')) {
@@ -28,7 +31,7 @@ if($banned) {
   }
 
   date_default_timezone_set('Europe/Paris');
-  $content .= "[Connection] at ".date('h-i-s')." ".date('d/m/o')." as IP:".$ip." with ".$agent."\n"; 
+  $content .= "[Connection] at ".date('h-i-s')." ".date('d/m/o')." as IP:".$ip."\n"; 
 
   file_put_contents(FULL_PATH.'/logs/spam.log', $content);
   header('Location: '. $_SERVER['REMOTE_ADDR']);
