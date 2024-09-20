@@ -23,7 +23,7 @@ if(file_exists(FULL_PATH.'/data/ban_ip.json')) {
 
 if($banned) {
   $content = "";
-  if(file_exists(FULL_PATH.'/logs/mail.log')) {
+  if(file_exists(FULL_PATH.'/logs/spam.log')) {
     $content = file_get_contents(FULL_PATH.'/logs/spam.log');
   }
 
