@@ -101,14 +101,26 @@ class Mail {
       $response = Mail::process_mail($mail_for_admin, explode(',', Dotenv::getEnv('MAIL')), $noreply_message, ($_FILES['files'] ?? []));
       $controller->addFlash($response['message'], $response['type']);
 
-      // $content = "";
-      // if(file_exists(FULL_PATH.'/logs/mail.log')) {
-      //   $content = file_get_contents(FULL_PATH.'/logs/mail.log');
-      // }
+      $content = "";
+      if(file_exists(FULL_PATH.'/logs/mail.log')) {
+        $content = file_get_contents(FULL_PATH.'/logs/mail.log');
+      }
 
-      // $content .= "[Mail Send] at ".date('h-i-s')." ".date('d/m/o')." as IP:".$_SERVER['REMOTE_ADDR']." with ".$_SERVER['HTTP_USER_AGENT']." with mail adress: ".$mail_address."\n"; 
+      $ip = "NO-IP";
+      $agent = "NO-AGENT";
 
-      // file_put_contents(FULL_PATH.'/logs/mail.log', $content);
+
+      if(isset($_SERVER['REMOTE_ADDR'])) {
+        $ip = $_SERVER['REMOTE_ADDR'];
+      }
+
+      if(isset($_SERVER['HTTP_USER_AGENT'])) {
+        $agent = $_SERVER['HTTP_USER_AGENT'];
+      }
+      
+      $content .= "[Mail Send] at ".date('h-i-s')." ".date('d/m/o')." as IP:".$ip." with ".$agent." with mail adress: ".$mail_address."\n"; 
+
+      file_put_contents(FULL_PATH.'/logs/mail.log', $content);
 
       header('Location: ' . $_SERVER['REQUEST_URI']);
       exit;
