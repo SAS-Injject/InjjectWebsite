@@ -97,18 +97,10 @@ class Mail {
     }
 
     if (!$error) {
-      $response = Mail::process_mail($mail_for_customer, [$mail_address], $message, ($_FILES['files'] ?? []));
-      $response = Mail::process_mail($mail_for_admin, explode(',', Dotenv::getEnv('MAIL')), $noreply_message, ($_FILES['files'] ?? []));
-      $controller->addFlash($response['message'], $response['type']);
-
-      $content = "";
-      if(file_exists(FULL_PATH.'/logs/mail.log')) {
-        $content = file_get_contents(FULL_PATH.'/logs/mail.log');
-      }
+      $banned = false;
 
       $ip = "NO-IP";
       $agent = "NO-AGENT";
-
 
       if(isset($_SERVER['REMOTE_ADDR'])) {
         $ip = $_SERVER['REMOTE_ADDR'];
@@ -117,7 +109,36 @@ class Mail {
       if(isset($_SERVER['HTTP_USER_AGENT'])) {
         $agent = $_SERVER['HTTP_USER_AGENT'];
       }
-      
+
+      if(file_exists(FULL_PATH.'/data/ban_email.json')) {
+        $ban_emails = json_decode(file_get_contents(FULL_PATH.'/data/ban_email.json'), true);
+        if(in_array($mail_address, $ban_emails['ban_email'])) {
+          $banned = true;
+        }
+      }
+      if(file_exists(FULL_PATH.'/data/ban_ip.json')) {
+        $ban_ips = json_decode(file_get_contents(FULL_PATH.'/data/ban_ip.json'), true);
+        if(in_array($ip, $ban_ips['ban_email'])) {
+          $banned = true;
+        }
+      }
+
+      $response = Mail::process_mail($mail_for_customer, [$mail_address], $message, ($_FILES['files'] ?? []));
+      if(!$banned) {
+        $response = Mail::process_mail($mail_for_admin, explode(',', Dotenv::getEnv('MAIL')), $noreply_message, ($_FILES['files'] ?? []));
+      }
+      $controller->addFlash($response['message'], $response['type']);
+
+      $content = "";
+      if(file_exists(FULL_PATH.'/logs/mail.log')) {
+        $content = file_get_contents(FULL_PATH.'/logs/mail.log');
+      }
+
+
+      if($banned) {
+        $content .= "BANNED / ";
+      }
+      date_default_timezone_set('Europe/Paris');
       $content .= "[Mail Send] at ".date('h-i-s')." ".date('d/m/o')." as IP:".$ip." with ".$agent." with mail adress: ".$mail_address."\n"; 
 
       file_put_contents(FULL_PATH.'/logs/mail.log', $content);
