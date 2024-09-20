@@ -116,12 +116,12 @@ class Mail {
           $banned = true;
         }
       }
-      if(file_exists(FULL_PATH.'/data/ban_ip.json')) {
-        $ban_ips = json_decode(file_get_contents(FULL_PATH.'/data/ban_ip.json'), true);
-        if(in_array($ip, $ban_ips['ban_email'])) {
-          $banned = true;
-        }
-      }
+      // if(file_exists(FULL_PATH.'/data/ban_ip.json')) {
+      //   $ban_ips = json_decode(file_get_contents(FULL_PATH.'/data/ban_ip.json'), true);
+      //   if(in_array($ip, $ban_ips['spam_ip'])) {
+      //     $banned = true;
+      //   }
+      // }
 
       $response = Mail::process_mail($mail_for_customer, [$mail_address], $message, ($_FILES['files'] ?? []));
       if(!$banned) {

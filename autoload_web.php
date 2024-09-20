@@ -2,11 +2,31 @@
 
 use App\Helpers\Config\Dotenv;
 
+
+
 define('FULL_PATH', dirname(__FILE__));
 define('WEB_PATH', dirname(__FILE__).'/web');
 define('TEMPLATES_PATH', dirname(__FILE__).'/templates');
 
 ini_set('display_errors', 'Off');
+
+//Exit if spam ip registered
+$banned = false;
+if(file_exists(FULL_PATH.'/data/ban_ip.json')) {
+  $spam_ip = json_decode(file_get_contents(FULL_PATH.'/data/ban_ip.json'), true);
+  if(isset($spam_ip['spam_ip']) && $spam_ip['spam_ip'] !== [] && isset($_SERVER['REMOTE_ADDR'])) {
+    if(in_array($_SERVER['REMOTE_ADDR'], $spam_ip['spam_ip'])) {
+      $banned = true;
+    } 
+  }
+}
+
+if($banned) {
+  header('Location: '. $_SERVER['REMOTE_ADDR']);
+  exit;
+}
+// End Spam redirection
+
 
 session_start();
 
