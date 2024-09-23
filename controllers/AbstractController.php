@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Helpers\Database\DatabaseUtils;
 use App\Helpers\Tools\Dump;
+use App\Helpers\Tools\Form;
 use App\Helpers\Tools\JWT;
 use App\Helpers\Tools\Mail;
 
@@ -29,12 +30,13 @@ class AbstractController {
   public function exec_common_duties() {
 
     //Vérifie le token après envoie du formulaire de devis (commun à toutes les pages)
-    if(isset($_POST['token']) ) {
-      if(JWT::isTokenValid($_POST['token'], ['form' => "quote_form"])) {
-        Mail::quote_form($this);
-      } 
+    
+    if(Form::isSent() && Form::isValid("quote_form")) {
+      Mail::quote_form($this);
+    } else if (Form::isSent()) {
+      $error = 'Une erreur dans la saisie du code de vérification a bloqué l\'envoi du formulaire (Captcha).';
+      $this->addFlash($error, 'danger');
     }
-
   }
 
   public static function get_common_parameters(self $instance): array {

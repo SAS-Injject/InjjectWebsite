@@ -17,9 +17,9 @@ class Main extends AbstractController{
 
   public function index() {
 
-    if(isset($_POST['token']) && JWT::isTokenValid($_POST['token'], ['form' => "quote_form"])) {
-      Mail::quote_form($this);
-    }
+    // if(isset($_POST['token']) && JWT::isTokenValid($_POST['token'], ['form' => "quote_form"])) {
+    //   Mail::quote_form($this);
+    // }
 
     $articles_arr = [];
 
