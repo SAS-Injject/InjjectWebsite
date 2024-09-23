@@ -4,11 +4,11 @@
       <h2 class="title-main-dark">Pour l'industrue et les particuliers</h2>
       <p class="main-description">Que vous soyez un industriel ou un particulier, nous mettons notre savoir-faire et 
         notre expertise à votre service avec la même qualité de prestation.</p>
-      <p class="main-paragraph">Nous répondons aux exigences variées de l'industrie tout en offrant des produits 
-        personnalisés pour les projets individuels. Notre objectif: <b>fournir des pièces de haute qualité, fiables et 
+      <p class="main-paragraph">Une pièce manquante, cassée ou un projet unique en tête ? Nous concevons et fabriquons 
+        des pièces sur mesure en résine et plastique, parfaitement adaptées à vos besoins, pour remplacer, améliorer ou 
+        créer ce qui vous manque.</b></p>      
+      <p class="main-paragraph">Notre objectif: <b>fournir des pièces de haute qualité, fiables et 
         adaptées à chaque demande.</b></p>
-      <p class="main-paragraph">En choississant Injject, vous choississez un partinaire à l'écoute qui vous accompagne 
-        et vous conseil dans vos projets.</p>
     </div>
   </div>
   <div class="row row-cols-2 container-std">

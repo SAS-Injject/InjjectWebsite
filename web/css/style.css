@@ -387,3 +387,24 @@ footer {
 }
 
 /* ---- */
+
+
+/* CAPTCHA */
+
+.captcha {
+
+  width: 200px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  margin: auto;
+
+}
+
+.captcha input {
+  width: 100%;
+  max-width: 100px;
+}
+
+/* ---- */

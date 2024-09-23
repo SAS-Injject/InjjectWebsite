@@ -7,9 +7,9 @@
   <section class="container-std">
     <h2 class="w-100 title-main-white bg-main text-center py-2 my-2">Nous Contacter</h2>
 
-    <p class="main_paragraph">{{ response.success.mail }}</p>
-    <p class="main_paragraph">{{ response.fail.mail }}</p>
-
+    <div class="m-auto py-2">
+      <p class="main-paragraph text-center text-danger"><b>{{ form_error }}</b></p>
+    </div>
     <form class="d-flex flex-column std-gap" method="POST" id="{{ form_id }}">
       <div>
         <label class="form-label main-paragraph p-0" for="message">Votre message <i>*</i></label>
@@ -25,6 +25,7 @@
         <label class="form-label main-paragraph p-0" for="tel">Votre Téléphone <i>(optionnel)</i></label>
         <input class="form-control form-control-sm" type="tel" id="tel" name="tel" placeholder="N° Téléphone">
       </div>
+      {% include  parts/components/captcha.html.tpl %}
       <div class="d-flex align-items-center std-gap">
         <input class="form-check-input m-0" type="checkbox" id="rgpd" name="rgpd" required>
         <label class="form-check-label main-paragraph p-0" for="rgpd">J'accepte les CGU ainsi que le traitement de mes données personnelles par <br>Injject selon 

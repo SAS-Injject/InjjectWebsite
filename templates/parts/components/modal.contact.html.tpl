@@ -63,6 +63,7 @@
                 <label class="form-label main-paragraph p-0" for="tel">Votre Téléphone <i>(optionnel)</i></label>
                 <input class="form-control form-control-sm" type="tel" id="tel" name="tel" placeholder="N° Téléphone">
               </div>
+              {% include  parts/components/captcha.html.tpl %}
               <div class="d-flex align-items-center std-gap">
                 <input class="form-check-input m-0" type="checkbox" id="rgpd" name="rgpd" required>
                 <label class="form-check-label main-paragraph p-0" for="rgpd">J'accepte les CGU ainsi que le traitement de mes données personnelles par <br>Injject selon 

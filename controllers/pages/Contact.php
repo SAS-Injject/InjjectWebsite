@@ -4,6 +4,8 @@ namespace App\Controllers\Pages;
 
 use App\Controllers\AbstractController;
 use App\Helpers\Templates\TemplateUtils;
+use App\Helpers\Tools\Dump;
+use App\Helpers\Tools\Form;
 use App\Helpers\Tools\JWT;
 use App\Helpers\Tools\Mail;
 use Exception;
@@ -16,16 +18,18 @@ class Contact extends AbstractController {
   public function index() {
 
     $form_id = "contact_form";
-    $response_message = [];
+    $error = '';
     // Form process
-    if(isset($_POST['token']) && JWT::isTokenValid($_POST['token'], ['form' => $form_id])) {
-      $response_message = Mail::quote_form($this);
+    if(Form::isSent() && Form::isValid($form_id)) {
+      Mail::quote_form($this);
+    } else if (Form::isSent()) {
+      $error = 'Une erreur dans la saisie du code de vérification a bloqué l\'envoi du formulaire.';
     }
       
 
     return TemplateUtils::sing($this, TEMPLATES_PATH.'/pages/contact.html.tpl', [
       'form_id' => $form_id,
-      'response' => ($response_message ?? []),
+      'form_error' => $error,
     ]);
   }
 

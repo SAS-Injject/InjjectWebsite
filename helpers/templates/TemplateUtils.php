@@ -236,10 +236,9 @@ class TemplateUtils {
         $call = preg_quote($call, '/');
         $class = $function[0];
         $method = $function[1];
-
         if(class_exists($class) && method_exists($class, $method)) {
-          if(isset($matches[2]) && $matches[2][$index]) {
-            $params = [];
+          $params = [];
+          if(isset($matches[2]) && $matches[2][$index]) { 
             $string_param = $matches[2][$index];
             $params_parts = array_map('trim', explode(',', $matches[2][$index]));
             foreach( $params_parts as $param) {
