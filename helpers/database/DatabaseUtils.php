@@ -139,13 +139,19 @@ class DatabaseUtils {
     return [];
   }
 
-  public static function get_last_entities(string $table, array $columns = [], int $limit = 10, string $order = 'id'): array {
+  public static function get_last_entities(string $table, array $columns = [], int $limit = 10, string $order = 'id',  string $where = "", string $where_criteria = 'id'): array {
 
     $columns_str = "*";
     if(count($columns) > 0) {
       $columns_str = implode(',', $columns);
     }
-    $entities = self::sql("SELECT $columns_str FROM $table ORDER BY $order DESC LIMIT $limit", respond: true);
+    $sql = "SELECT $columns_str FROM $table ";
+    if($where !== "") {
+      $sql .= " WHERE $where_criteria = $where";
+    }
+    $sql .= " ORDER BY $order DESC LIMIT $limit";
+    $entities = self::sql($sql, respond: true);
+    // $entities = self::sql("SELECT $columns_str FROM $table ORDER BY $order DESC LIMIT $limit", respond: true);
     if( !is_null($entities) && count($entities) > 0 ) {
       return $entities;
     }

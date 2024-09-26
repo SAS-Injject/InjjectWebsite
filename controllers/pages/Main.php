@@ -24,7 +24,7 @@ class Main extends AbstractController{
     $articles_arr = [];
 
     if(DatabaseUtils::is_alive()) {
-      $articles = DatabaseUtils::get_last_entities('articles', ["id", "title", "thumbnail_id", "published_at", "summary"], 4);
+      $articles = DatabaseUtils::get_last_entities('articles', ["id", "title", "thumbnail_id", "published_at", "summary"], 4, where: "1", where_criteria: "is_published");
       if(null !== $articles || count($articles) > 0) {
   
         foreach($articles as $article) {

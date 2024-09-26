@@ -21,7 +21,7 @@ class Articles extends AbstractController{
         'articles', 
         ["id", "title", "thumbnail_id", "published_at", "summary", "is_published"], 
         $limit_articles_by_page, $offset, 'published_at',         
-        1, "is_published"
+        "1", "is_published"
       );
 
       
