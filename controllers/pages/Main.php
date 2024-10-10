@@ -24,20 +24,26 @@ class Main extends AbstractController{
     $articles_arr = [];
 
     if(DatabaseUtils::is_alive()) {
-      $articles = DatabaseUtils::get_last_entities('articles', ["id", "title", "thumbnail_id", "published_at", "summary"], 4, where: "1", where_criteria: "is_published");
+      $articles = DatabaseUtils::get_last_entities('articles', 
+        ["id", "title", "thumbnail_file", "published_at", "summary", "is_published"], 
+        4, where: "1", where_criteria: "is_published");
       if(null !== $articles || count($articles) > 0) {
   
         foreach($articles as $article) {
-          $thumbnail = DatabaseUtils::get_entity($article["thumbnail_id"], 'thumbnails', ["file"]);
   
           $category_id = DatabaseUtils::get_entity($article['id'], 'articles_articles_categories', ['articles_categories_id'], 'articles_id');
-          $category = DatabaseUtils::get_entity($category_id['articles_categories_id'], 'articles_categories', ['label']);
+
+          if(isset($category_id["articles_categories_id"])) {
+            $category = DatabaseUtils::get_entity($category_id["articles_categories_id"], 'articles_categories', ['label']);
+          } else {
+            $category = [];
+          }
   
           $articles_arr[$article['id']] = [
             'id' => $article['id'],
             'article_title' => $article['title'],
-            'thumbnail_file' => $thumbnail['file'],
-            'category' => $category['label'],
+            'thumbnail_file' => $article['thumbnail_file'],
+            'category' => $category,
             'date' => date("d/m/y", (new DateTime($article['published_at']))->getTimestamp()),
             'summary' => $article['summary'],
           ];

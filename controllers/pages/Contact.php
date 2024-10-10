@@ -30,6 +30,7 @@ class Contact extends AbstractController {
     return TemplateUtils::sing($this, TEMPLATES_PATH.'/pages/contact.html.tpl', [
       'form_id' => $form_id,
       'form_error' => $error,
+      'jwt_contact' => JWT::generateWebToken([], ['id' => 'captcha'])
     ]);
   }
 

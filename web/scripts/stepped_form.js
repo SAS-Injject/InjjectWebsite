@@ -1,4 +1,4 @@
-window.onload = (event) => {
+console.log('prout');
 
   let DROP_CONTAINERS = document.querySelectorAll(".drop-container");
 
@@ -72,7 +72,6 @@ window.onload = (event) => {
     })
 
   })
-}
 
 
 

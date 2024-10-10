@@ -45,6 +45,10 @@ time, mark, audio, video {
 	padding: 0;
 }
 
+body {
+  visibility: hidden;
+}
+
 a {
   color: inherit;
 }
@@ -405,6 +409,35 @@ footer {
 .captcha input {
   width: 100%;
   max-width: 100px;
+}
+
+/* ---- */
+
+/* TOP SHORTCUT */
+
+#top-shortcut {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+
+  width: 60px;
+  height: 60px;
+
+  border-radius: 10px;
+
+  background-color: rgba(0, 0, 0, 0.12);
+
+  cursor: pointer;
+
+  transition: all 0.5s ease;
+
+  z-index: 1000;
+
+}
+
+#top-shortcut img {
+  width: inherit;
+  height: inherit;
 }
 
 /* ---- */

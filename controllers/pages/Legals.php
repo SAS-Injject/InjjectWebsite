@@ -3,7 +3,9 @@
 namespace App\Controllers\Pages;
 
 use App\Controllers\AbstractController;
+use App\Helpers\Database\DatabaseUtils;
 use App\Helpers\Templates\TemplateUtils;
+use App\Helpers\Tools\Dump;
 
 class Legals extends AbstractController {
 
@@ -14,20 +16,39 @@ class Legals extends AbstractController {
   }
 
   public function legals() {
-    return TemplateUtils::sing($this, TEMPLATES_PATH.'/pages/mentions_legales.html.tpl', [
 
+    $legals = DatabaseUtils::get_entities("configuration", where:"legal", where_criteria:"name");
+    if(count($legals) > 0 ) {
+      $legal = $legals[0];
+      $legal = json_decode($legal['value'], true);
+    }
+    return TemplateUtils::sing($this, TEMPLATES_PATH.'/pages/notices.html.tpl', [
+      "legal" => $legal,
     ]);
   }
 
   public function cgu() {
-    return TemplateUtils::sing($this, TEMPLATES_PATH.'/pages/cgu.html.tpl', [
 
+    $legals = DatabaseUtils::get_entities("configuration", [], "cgu", "name");
+    if(count($legals) > 0 ) {
+      $legal = $legals[0];
+      $legal = json_decode($legal['value'], true);
+    }
+    return TemplateUtils::sing($this, TEMPLATES_PATH.'/pages/notices.html.tpl', [
+      "legal" => $legal,
     ]);
   }
 
   public function cgv() {
-    return TemplateUtils::sing($this, TEMPLATES_PATH.'/pages/cgv.html.tpl', [
 
+    $legals = DatabaseUtils::get_entities("configuration", [], "cgv", "name");
+    if(count($legals) > 0 ) {
+      $legal = $legals[0];
+      $legal = json_decode($legal['value'], true);
+    }
+
+    return TemplateUtils::sing($this, TEMPLATES_PATH.'/pages/notices.html.tpl', [
+      "legal" => $legal,
     ]);
   }
 

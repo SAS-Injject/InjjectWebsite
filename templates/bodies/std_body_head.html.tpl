@@ -12,16 +12,19 @@
     
     <title>{{title}}</title>
 
+
     <script src="/css/bootstrap/js/bootstrap.min.js"></script>
 
     {% call App\Controllers\AbstractController::import_js params ({{ js_files_path }}) %}
+    {% call App\Controllers\AbstractController::import_defer_js params ({{ js_defer_files_path }}) %}
 
     <link rel="stylesheet" href="/css/bootstrap/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="/css/style.css">
     {% call App\Controllers\AbstractController::import_css params ({{ main_css_path }}) %}
 
-
+    <script src="/scripts/load.js"></script>
+    <script defer src="/scripts/topShortcut.js"></script>
 
   </head>
   <body>

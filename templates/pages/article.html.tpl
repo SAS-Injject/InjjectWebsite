@@ -7,7 +7,7 @@
   <article class="complete-article d-flex flex-column std-gap">
     <h2 class="title-main-dark-medium text-center">{{ data.article_title }}</h2>
     <p class="main-paragraph text-center">{{ data.date }}</p>
-    <img class="m-auto" src="{{ url_api }}{{ data.thumbnail_file }}">
+    <img class="m-auto" src="{{ url_res }}{{ data.thumbnail_file }}">
     <div class="article_summary bg-grey-light">
       <p class="main-description p-0">{{ data.summary }}</p>
     </div>

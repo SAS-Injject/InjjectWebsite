@@ -4,6 +4,6 @@ use App\Controllers\Pages\Legals;
 
 require_once "../../../../autoload_web.php";
 
-$html = (new Legals('Mentions Légales', ['/css/style-legals.css'], ['/scripts/get_legals.js']))->cgv();
+$html = (new Legals('Mentions Légales', ['/css/style-legals.css'], []))->cgv();
 
 echo $html;

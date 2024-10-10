@@ -19,7 +19,7 @@ class Articles extends AbstractController{
       $offset = ($page-1)*$limit_articles_by_page;
       $articles = DatabaseUtils::get_paginated_entities(
         'articles', 
-        ["id", "title", "thumbnail_id", "published_at", "summary", "is_published"], 
+        ["id", "title", "thumbnail_file", "thumbnail_name", "thumbnail_alt", "thumbnail_legend", "published_at", "summary", "is_published"], 
         $limit_articles_by_page, $offset, 'published_at',         
         "1", "is_published"
       );
@@ -32,16 +32,20 @@ class Articles extends AbstractController{
         $articles = array_reverse($articles);
   
         foreach($articles as $article) {
-          $thumbnail = DatabaseUtils::get_entity($article["thumbnail_id"], 'thumbnails', ["file"]);
   
           $category_id = DatabaseUtils::get_entity($article['id'], 'articles_articles_categories', ['articles_categories_id'], 'articles_id');
-          $category = DatabaseUtils::get_entity($category_id['articles_categories_id'], 'articles_categories', ['label']);
+
+          if(isset($category_id["articles_categories_id"])) {
+            $category = DatabaseUtils::get_entity($category_id["articles_categories_id"], 'articles_categories', ['label']);
+          } else {
+            $category = [];
+          }
   
           $articles_arr[$article['id']] = [
             'id' => $article['id'],
             'article_title' => $article['title'],
-            'thumbnail_file' => $thumbnail['file'],
-            'category' => $category['label'],
+            'thumbnail_file' => $article['thumbnail_file'],
+            'category' => $category,
             'date' => date("d/m/y", (new DateTime($article['published_at']))->getTimestamp()),
             'summary' => $article['summary'],
           ];
@@ -74,16 +78,18 @@ class Articles extends AbstractController{
           }
         }
 
-        $thumbnail = DatabaseUtils::get_entity($article["thumbnail_id"], 'thumbnails', ["file"]);
-
         $category_id = DatabaseUtils::get_entity($article['id'], 'articles_articles_categories', ['articles_categories_id'], 'articles_id');
-        $category = DatabaseUtils::get_entity($category_id['articles_categories_id'], 'articles_categories', ['label']);
+        if(isset($category_id["articles_categories_id"])) {
+          $category = DatabaseUtils::get_entity($category_id["articles_categories_id"], 'articles_categories', ['label']);
+        } else {
+          $category = [];
+        }
 
         $data = [
           'id' => $article['id'],
           'article_title' => $article['title'],
-          'thumbnail_file' => $thumbnail['file'],
-          'category' => $category['label'],
+          'thumbnail_file' => $article['thumbnail_file'],
+          'category' => $category,
           'date' => date("d/m/y", $content['time']),
           'summary' => $article['summary'],
           'table' => $table_of_contents,

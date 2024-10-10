@@ -1,0 +1,46 @@
+.upkeep {
+  width: 100%;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(255, 249, 238);
+  box-sizing: border-box;
+  border: 5px solid rgb(255, 240, 213);
+
+
+}
+
+.upkeep section {
+
+  width: 100%;
+  min-width: 300px;
+  max-width: 700px;
+
+  padding: 20px;
+}
+
+.upkeep section h1 {
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.upkeep section h4 {
+  font-size: 18px;
+  font-weight: normal;
+  text-align: end;
+
+  margin-bottom: 20px;
+}
+
+.upkeep section p {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.upkeep section a {
+  color: rgb(69, 69, 201);
+  font-size: 15px;
+}

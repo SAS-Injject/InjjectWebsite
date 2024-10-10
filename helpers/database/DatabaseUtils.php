@@ -114,6 +114,7 @@ class DatabaseUtils {
     $entity = self::sql("SELECT $columns_str FROM $table WHERE $criteria = :id", [
       "id" => strval($id)
     ], respond: true);
+
     if( !is_null($entity) && count($entity) > 0 ) {
       return $entity[0];
     }
@@ -129,7 +130,7 @@ class DatabaseUtils {
 
     $sql = "SELECT $columns_str FROM $table";
     if($where !== "") {
-      $sql .= " WHERE $where_criteria = $where";
+      $sql .= " WHERE $where_criteria = '$where'";
     }
 
     $entities = self::sql($sql, respond: true);

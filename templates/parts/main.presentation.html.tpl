@@ -13,19 +13,19 @@
   </div>
   <div class="row row-cols-2 container-std">
     <div class="col skills m-auto">
+      <img src="/assets/CAO.png">
+      <div>
+        <p class="main-paragraph"><b>CAO : </b>Avant toutes fabrications, votre projet fait l'objet d'une étude de conception assistée par 
+          ordinateur. Nous dessinons votre future pièce en 3D afin qu'elle réponde à vos besons et critères 
+          techniques.</p>
+      </div>
+    </div>
+    <div class="col skills m-auto">
       <img src="/assets/STL.png">
       <div>
         <p class="main-paragraph"><b>Stéréolithographie : </b>Grâce à nos machines nous produisons des pièces en résine dans le cadre 
           d'applications mécaniques ou à but décoratifs.</p>
       </div> 
-    </div>
-    <div class="col skills m-auto">
-      <img src="/assets/CAO.png">
-      <div>
-        <p class="main-paragraph"><b>CAO : </b>Avant toutes fabrications, votre projet fait l'objet d'une étude de conception assisté par 
-          ordinateur. Nous dessinons votre future pièce en 3D afin qu'elle réponde à vos besons et critères 
-          techniques.</p>
-      </div>
     </div>
     <div class="col skills m-auto">
       <img src="/assets/FDM.png">

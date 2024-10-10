@@ -55,19 +55,20 @@ class Realizations extends AbstractController{
 
     if(DatabaseUtils::is_alive()) {
       $realization = DatabaseUtils::get_entity($id, 'realization');
-      $realization_content = DatabaseUtils::get_entity($id, 'realization_jectech');
       $photos = DatabaseUtils::get_entities('realization_photo', ['file'], $id, 'realization_id');
-      $client = DatabaseUtils::get_entity($realization['client_id'], 'client', ['logo_id']);
-      $client_logo = DatabaseUtils::get_entity($client['logo_id'], 'logos', ['file']);
-
-      if(null !== $realization && null !== $realization_content) {
+      $client_logo = DatabaseUtils::get_entity($realization['customer_id'], 'customers', ['logo_name', 'logo_file', 'logo_alt', 'logo_legend']);
 
 
-        $data = array_merge($realization, $realization_content);
+      $data = $realization;
+      if(null !== $realization) {
+
         foreach($photos as $photo) {
           $data['photos'][] = $photo;
         }
-        $data['client_logo']['file'] = $client_logo['file'];
+        $data['client_logo']['file'] = $client_logo['logo_file'];
+        $data['client_logo']['name'] = $client_logo['logo_name'];
+        $data['client_logo']['alt'] = $client_logo['logo_alt'];
+        $data['client_logo']['legend'] = $client_logo['logo_legend'];
 
         $data['period'] = date('F Y', (new DateTime($data['period']))->getTimestamp());
       }

@@ -8,7 +8,8 @@
     <p class="main-description text-end"><a class=" link-dark link-underline link-underline-opacity-0 link-offset-2 link-underline-opacity-100-hover" href="/legal">Retour</a></p>
   </div>
 
-  <article class="" data-legals="true" data-notices="cgu">
+  <article class="" data-legals="true" data-notices="legals">
+    {{ legal.html }}
   </article>
 
 </main>

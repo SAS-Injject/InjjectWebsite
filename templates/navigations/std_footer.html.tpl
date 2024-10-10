@@ -4,12 +4,12 @@
     <div class="d-flex flex-column std-gap">
       <img src="/assets/logo_blanc.png" width="185">
       <div>
-        <p class="main-paragraph p-0">{{ footer_data.address }}</p>
-        <p class="main-paragraph p-0">{{ footer_data.zip_code }} {{ footer_data.city }}</p>
+        <p class="main-paragraph p-0">{{ configuration.address }}</p>
+        <p class="main-paragraph p-0">{{ configuration.zip }} {{ configuration.city }}</p>
       </div>
       <div>
-        <p class="main-paragraph p-0"><a class="link-light link-underline link-underline-opacity-0" href="tel:">{{ footer_data.phone }}</a></p>
-        <p class="main-paragraph p-0"><a class="link-light link-underline link-underline-opacity-0" href="mailto:">{{ footer_data.email }}</a></p>
+        <p class="main-paragraph p-0"><a class="link-light link-underline link-underline-opacity-0" href="tel:">{{ configuration.phone }}</a></p>
+        <p class="main-paragraph p-0"><a class="link-light link-underline link-underline-opacity-0" href="mailto:">{{ configuration.email }}</a></p>
       </div>
     </div>
 

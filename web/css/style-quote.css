@@ -29,6 +29,8 @@
 }
 
 #quote_form fieldset[data-visible=true] {
+  visibility: visible;
+
   width: 100%;
   height: inherit;
 
