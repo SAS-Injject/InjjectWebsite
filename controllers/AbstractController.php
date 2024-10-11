@@ -51,7 +51,7 @@ class AbstractController {
     $data = [];
 
 
-    $data['configuration'] = $_SERVER['configuration'];
+    $data['configuration'] = $_ENV['configuration'];
 
 
     if( $instance->getCssFilesPath() !== "") {
