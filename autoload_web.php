@@ -68,12 +68,12 @@ if(DatabaseUtils::is_alive()) {
   }
 
   if(null !== $data) {
-    $_SERVER['configuration'] = $data;
+    $_ENV['configuration'] = $data;
   } else {
-    $_SERVER['configuration'] = [];
+    $_ENV['configuration'] = [];
   }
-  if ((!isset($_SERVER['configuration']['upkeep']) || $_SERVER['configuration']['upkeep'] == true) && 
-    !isset($_SERVER['already_check_upkeep'])) {
+  if ((!isset($_ENV['configuration']['upkeep']) || $_ENV['configuration']['upkeep'] == true) && 
+    !isset($_ENV['already_check_upkeep'])) {
     // Page de maintenance
   
     header('Location: /maintenance.php');
@@ -81,14 +81,14 @@ if(DatabaseUtils::is_alive()) {
   }
 } else {
   // Page de maintenance erreur
-  $_SERVER['configuration']['upkeep'] = true;
-  if (!isset($_SERVER['already_check_upkeep'])) {
+  $_ENV['configuration']['upkeep'] = true;
+  if (!isset($_ENV['already_check_upkeep'])) {
     header('Location: /maintenance.php');
     exit; 
   }
 }
 
-$_SERVER['already_check_upkeep'] = false;
+$_ENV['already_check_upkeep'] = false;
 
 class autoload {
 

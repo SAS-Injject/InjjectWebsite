@@ -4,10 +4,10 @@ use App\Controllers\Pages\Upkeep;
 use App\Helpers\Tools\Dump;
 use App\Helpers\Tools\JWT;
 
-$_SERVER['already_check_upkeep'] = true;
+$_ENV['already_check_upkeep'] = true;
 
 require_once "../autoload_web.php";
-if($_SERVER['configuration']['upkeep'] == true) {
+if($_ENV['configuration']['upkeep'] == true) {
 
   $html = (new Upkeep('Maintenance', [
       '/css/style-upkeep.css', 
